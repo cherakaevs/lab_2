@@ -31,7 +31,8 @@ while circle:
               print('Зеленый:', AverageColorChannel[1])
               print('Синий:', AverageColorChannel[2])
 
-              arr = np.uint8(arr[0:512, 0:512, 0] * 0.299 + arr[0:512, 0:512, 1] * 0.587 + arr[0:512, 0:512, 2] * 0.114)
+              arr = np.uint8(arr*[0.299, 0.587, 0.114])
+              arr.sum(2)
 
               img = Image.fromarray(arr)
               img.save('lena_grayscaled.png')
